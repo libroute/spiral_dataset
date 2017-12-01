@@ -1,7 +1,11 @@
 # Spiral 2-dimensional data set
 # Ref: http://cs231n.github.io/neural-networks-case-study/
 
-n = 100
+args <- commandArgs(trailingOnly = TRUE)
+
+n = as.numeric(args[1])
+n = if(is.na(n)){100}else{n}
+
 th = function(k){ seq(k*4,(k+1)*4,length=n) + rnorm(n)*0.2}
 r = seq(0,1,length=n)
 z = function(k) { cbind(r*sin(th(k)),r*cos(th(k))) }
